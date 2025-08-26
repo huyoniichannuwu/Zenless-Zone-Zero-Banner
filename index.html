@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Banner Phương Thảo Ước Thệ</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: #222;
+      color: #eee;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { color: gold; }
+    #pity-box {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #666;
+      display: inline-block;
+      background: #333;
+      border-radius: 8px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .roll1 { background: #4caf50; color: white; }
+    .roll10 { background: #2196f3; color: white; }
+    .reset { background: #f44336; color: white; }
+    #results { margin-top: 20px; }
+    .item { margin: 5px; font-size: 18px; }
+    .s-rank { color: gold; font-weight: bold; }
+    .a-rank { color: violet; }
+    .b-rank { color: lightblue; }
+  </style>
+</head>
+<body>
+      
+  
+  <div id="banner">
+        <img src="images/banner.jpg" alt = "Banner Gacha" width= "500" style="border-radius:10px;">
+  </div>
+  <h1>~ Banner Phương Thảo Ước Thệ ~</h1>
+  <div class="controls">
+        <button onclick="roll(1)">Roll 1</button>
+        <button onclick="roll(10)">Roll 10</button>
+        <button onclick="resetPity()">Reset Pity</button>
+    </div>
+
+  <div id="results"></div>
+  <p id="pity-display">Pity: <span id="pity">0</span></p>
+</body>
+
+  <script>
+    // hiện pity lúc mới load
+    document.getElementById("pity").textContent = pity;
+
+    function resetPity(){
+      pity = 0;
+      localStorage.setItem("pity", pity);
+      document.getElementById("pity").textContent = pity;
+      document.getElementById("results").innerHTML = "<p>Đã reset pity!</p>";
+    }
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
