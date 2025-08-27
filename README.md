@@ -1,4 +1,7 @@
-BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice
+BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice Thymefield
 
-*using pity and gacha logic from zenless zone zero *VIE language *basic javascript language, using html and css for making the web more efficient (https://huyoniichannuwu.github.io/Zenless-Zone-Zero-Banner/)
+A big update after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effect & music) 
+hope you guys like this
+(https://huyoniichannuwu.github.io/Zenless-Zone-Zero-Banner/)
+
 
