@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/jpg" href="images/favicon2.jpg">
+  <title>Phương Thảo Ước Thệ</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+        url("images/background.jpg") no-repeat center center fixed;
+      background-size: cover;
+        color: #eee;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { color: gold; }
+    h2 {color: bisque;}
+    #pity-box {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #666;
+      display: inline-block;
+      background: #333;
+      border-radius: 8px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: bisque;
+      cursor: pointer;
+    }
+    .roll1 { background: #4caf50; color: white; }
+    .roll10 { background: #2196f3; color: white; }
+    .reset { background: #f44336; color: white; }
+    #results { margin-top: 2  0px; }
+    .item { margin: 5px; font-size: 18px; }
+    .s-rank { color: gold; font-weight: bold; }
+    .a-rank { color: violet; }
+    .b-rank { color: lightblue; }
+  </style>
+</head>
+<body>
+  <div id="banner" >
+    <img src="images/banner.jpg" alt = "Banner Gacha" width= "400" style="border-radius:10px;" class="fade-in fade-delay-0" >
+  </div>
+  <h1 class="fade-in fade-delay-1">~ Banner Phương Thảo Ước Thệ ~</h1>
+  <h2 class="fade-in fade-delay-1">✿Alice Thymefield❀</h2>
+  <div class="controls fade-in fade-delay-2">
+        <button onclick="roll(1)">Roll 1</button>
+        <button onclick="roll(10)">Roll 10</button>
+        <button onclick="resetPity()">Reset Pity</button>
+    </div>
+  
+    <audio id ="click-sound">
+    <source src="audio/click.MP3">
+    Trình duyệt bạn không hỗ trợ âm thanh
+    </audio>
+  
+    <audio id="s-rank-sound"> 
+    <source src="audio/s_rank.mp3">
+    Trình duyệt bạn không hỗ trợ âm thanh
+  </audio>
+  <audio id="chiu-sound">
+    <source src="audio/chiu.mp3">
+    Trình duyệt bạn không hỗ trợ âm thanh
+  </audio>
+  <audio id="sad-sound">
+    <source src="audio/sad.mp3">
+    Trình duyệt bạn không hỗ trợ âm thanh
+  </audio>
+  
+  <div id="results"></div>
+  <p id="pity-display" class="fade-in fade-delay-3">Pity: <span id="pity">0</span></p>
+  
+</body>
+  <script>
+    // hiện pity lúc mới load
+    document.getElementById("pity").textContent = pity;
+
+    function resetPity(){
+      pity = 0;
+      localStorage.setItem("pity", pity);
+      document.getElementById("pity").textContent = pity;
+      document.getElementById("results").innerHTML = "<p>Đã reset pity!</p>";
+    }
+
+ 
+</script>
+  <script src="main.js"></script>
+</body>
+
+</html>
