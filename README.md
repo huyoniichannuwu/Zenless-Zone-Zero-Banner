@@ -1,4 +1,4 @@
-BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice
+## BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice
 
 *using pity and gacha logic from zenless zone zero
 *VIE language
