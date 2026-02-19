@@ -5,43 +5,57 @@
 
 A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music) 
 
-🔗 **Live Demo:** https://huyoniichannuwu.github.io/ZZZ-Banner-System/
----
+# 🎰 Gacha System Logic
+
+This project simulates a Gacha banner (Zenless Zone Zero style) using JavaScript. Below is the breakdown of the internal logic.
+
+## 📊 Probabilities & Ranks
+The system generates a random number `randomNV` (0-100) for every pull:
+
+* **S-Rank** (`randomNV ≤ 1`): **~1% chance**.
+    * *Reward:* **Alice** (Banner Character) or Standard S-Rank Characters.
+* **A-Rank** (`2 ≤ randomNV ≤ 10`): **~9% chance**.
+    * *Reward:* Anby, Sett, Nicole.
+* **B-Rank** (`randomNV > 10`): **~90% chance**.
+    * *Reward:* W-Engines (Kiếm Súng, Tương Cà, etc.).
 
 ---
-## ⚙️ Logic Gacha
 
-Hệ thống sử dụng `Math.random()` và `localStorage` để xử lý xác suất:
+## 🛡️ Pity System (Bảo Hiểm)
 
-## 🚀 Tính Năng Chính
+The system tracks your luck using a `pity` counter stored in the browser's **LocalStorage**.
 
-* **Mô phỏng Gacha:** Quay nhân vật với hiệu ứng và logic thực tế.
-* **Hệ thống Pity (Bảo hiểm):** Theo dõi số lần quay để đảm bảo ra nhân vật S-rank và A-rank.
-* **Giao diện:** Thiết kế responsive cơ bản với HTML/CSS.
+### 1. Hard Pity
+* **Threshold:** If `pity >= 90`.
+* **Effect:** The next pull is guaranteed to be an **S-Rank** character, regardless of the random number generation.
+* **Reset:** The `pity` counter resets to 0 immediately after obtaining any S-Rank.
+
+### 2. Early Luck Mechanism
+* The code includes a specific check for "Early Luck" (`pity <= 20`).
+* If you hit an S-Rank within the first 20 pulls, it triggers a special "NỔ SỚM" (Early Pop) message.
 
 ---
 
-## 🧠 Giải Thích Logic Gacha (ZZZ Mechanics)
+## ⚖️ 50/50 & Guarantee Logic
 
-Dự án này sử dụng thuật toán giả lập xác suất (Probability Algorithm) bám sát theo cơ chế của Zenless Zone Zero. Dưới đây là cách code xử lý logic:
+When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** applies:
 
-### 1. Tỷ Lệ Cơ Bản (Base Rates)
-Hệ thống sử dụng `Math.random()` để sinh ra một số từ 0 đến 100 cho mỗi lần quay.
+1.  **Check Guarantee Status:**
+    * If `guarantee` is **TRUE**: You get **Alice** (100%).
+    * *Result:* `guarantee` resets to `false`.
 
-* **S-Rank (Tín Vật S):** Tỷ lệ gốc **0.6%**.
-* **A-Rank (Tín Vật A):** Tỷ lệ gốc khoảng **5-6%**.
-* **B-Rank:** Các trường hợp còn lại.
+2.  **50/50 Roll (If no guarantee):**
+    * The system rolls a 50% chance (`Math.random() < 0.5`).
+    * **WIN:** You get **Alice**.
+    * **LOSE:** You get a Standard S-Rank (Lycaon, Rina, etc.).
+        * *Result:* `guarantee` is set to **TRUE** (Next S-Rank is guaranteed to be Alice).
 
-### 2. Cơ Chế Pity (Bảo Hiểm)
-Biến đếm `pityCounter` được sử dụng để theo dõi số lần quay chưa ra S-rank:
+---
 
-* **Hard Pity (Bảo hiểm cứng):** Tại lần quay thứ **90**, nếu chưa ra S-rank, tỷ lệ trả về S-rank là **100%**.
-* **Soft Pity (Bảo hiểm mềm):** Bắt đầu từ lần quay thứ **80**, tỷ lệ ra S-rank sẽ tăng đột biến (không còn là 0.6% mà tăng dần lên, ví dụ: 6% -> 12% -> 20%...) cho đến khi chạm 90.
-* **A-Rank Pity:** Đảm bảo mỗi **10 lần quay** chắc chắn có ít nhất 1 đồ tím (A-rank).
+## 💾 Data Persistence
+* **LocalStorage:** The `pity` count and `guarantee` (boolean) status are saved to the browser.
+* This ensures your pull history is preserved even if you refresh or close the page.
 
-### 3. Cơ Chế 50/50 (Rate Up)
-Khi hệ thống xác định bạn nhận được S-rank, một biến kiểm tra `isGuaranteed` (bảo đảm) sẽ hoạt động:
-
-1.  **Lần đầu ra S-rank:** Có **50%** tỷ lệ ra nhân vật Banner (Alice) và **50%** ra nhân vật thường (Lệch rate).
-2.  **Nếu lệch rate:** Biến `isGuaranteed` được set thành `true`.
-3.  **Lần sau ra S-rank:** Chắc chắn **100%** là nhân vật Banner (Alice). Sau đó `isGuaranteed` reset về `false`.
+## 🔊 Audio & Visuals
+* **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (Chiu), and Losing 50/50 (Sad).
+* **Click-to-Reveal:** S-Rank results are initially hidden ("S-Rankkkk!"). The user must click the text to reveal the character and trigger the win/loss sound.
