@@ -1,22 +1,37 @@
-BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice Thymefield
-
-A big update after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music) 
--
-hope you guys like this
-(https://huyoniichannuwu.github.io/Zenless-Zone-Zero-Banner/)
-
-# BANNER PHƯƠNG THẢO ƯỚC THỆ - Gacha Simulator 🎲
-
+## BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice Thymefield
 ![Project Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Language](https://img.shields.io/badge/Language-Vietnamese-red)
 ![Tech](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20JS-blue)
 
-Chào mừng đến với dự án **Banner Phương Thảo Ước Thệ**. Đây là một web-app mô phỏng hệ thống quay thưởng (Gacha) dựa trên cơ chế và tỷ lệ của tựa game **Zenless Zone Zero (ZZZ)**, với nhân vật S-rank giới hạn là **Alice**.
+A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music) 
 
 🔗 **Live Demo:** [Trải nghiệm ngay tại đây](https://huyoniichannuwu.github.io/Zenless-Zone-Zero-Banner-1.0/)
+---
 
-> **Lưu ý:** Để có trải nghiệm tốt nhất và cập nhật mới nhất, vui lòng chuyển sang nhánh (branch) `banner-2.0`.
+---
+## ⚙️ Logic Gacha (Code Breakdown)
 
+Hệ thống sử dụng `Math.random()` và `localStorage` để xử lý xác suất:
+
+### 1. Cơ chế Bảo Hiểm (Hard Pity)
+* **Điều kiện:** `if (pity >= 89)`
+* **Kết quả:** Chắc chắn nhận **Alice** (S-Rank).
+
+### 2. Tỷ lệ Quay (Probability)
+Biến `randomNV` (0-100) quyết định phẩm chất:
+
+* 🔴 **S-Rank** (`randomNV <= 1.6666`):
+    * **50%:** Ra **Alice** (Rate Up).
+    * **50%:** Ra tướng lệch rate (Lycaon, Rina, Soldier 11, Koleda, Grace, Nekomata).
+* 🟣 **A-Rank** (`2 <= randomNV <= 20`):
+    * Tỷ lệ khoảng ~18%.
+    * Ra ngẫu nhiên: Anby, Sett, Nicole.
+* ⚪ **B-Rank** (`randomNV > 20`):
+    * Tỷ lệ khoảng ~80%.
+    * Vật phẩm: Kiếm Súng.
+
+### 3. Lưu trữ
+* Dữ liệu `pity` được lưu vào **LocalStorage** để không bị mất khi tải lại trang.
 ---
 
 ## 🚀 Tính Năng Chính
@@ -92,6 +107,7 @@ function check50_50() {
         return "Standard S-Rank (Lost 50/50)";
     }
 }
+
 
 
 
