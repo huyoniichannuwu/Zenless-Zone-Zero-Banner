@@ -11,7 +11,7 @@ A big update **2.0** after 1.0 release a few days ago (add more effects, fix log
 
 This project simulates a Gacha banner (Zenless Zone Zero style) using JavaScript. Below is the logic of the system
 
-## 📊 Probabilities & Ranks
+## 📊 Probabilities & Characters Ranks
 The system generates a random number `randomNV` (0-100) for every pull:
 
 * **S-Rank** (`randomNV ≤ 1`): **~1% chance**.
@@ -23,7 +23,7 @@ The system generates a random number `randomNV` (0-100) for every pull:
 
 ---
 
-## 🛡️ Pity System (Bảo Hiểm)
+## 🛡️ Pity System - Bảo Hiểm
 
 The system tracks your luck using a `pity` counter stored in the browser's **LocalStorage**.
 
@@ -49,8 +49,8 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 2.  **50/50 Roll (If no guarantee):**
     * The system rolls a 50% chance (`Math.random() < 0.5`).
     * **WIN:** You get **Alice**.
-    * **LOSE:** You get a Standard S-Rank (Lycaon, Rina, etc.).
-        * *Result:* `guarantee` is set to **TRUE** (Next S-Rank is guaranteed to be Alice).
+    * **LOSE:** You get a Standard S-Rank (Lycaon, Rina, Soldier 11, Nekomata, Koleda, Grace).
+        * *Result:* `guarantee` is set to **TRUE** (Next S-Rank is guaranteed to be **Alice**).
 
 ---
 
@@ -59,8 +59,9 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 * This ensures your pull history is preserved even if you refresh or close the page.
 
 ## 🔊 Audio & Visuals
-* **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (Chiu), and Losing 50/50 (Sad).
+* **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (chiu.mp3), and Losing 50/50 (sad.mp3).
 * **Click-to-Reveal:** S-Rank results are initially hidden ("S-Rankkkk!"). The user must click the text to reveal the character and trigger the win/loss sound.
+
 
 
 
