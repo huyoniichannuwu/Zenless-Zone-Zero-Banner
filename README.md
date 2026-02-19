@@ -5,11 +5,11 @@
 
 A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music) 
 
-🔗 **Live Demo:** [Trải nghiệm ngay tại đây](https://huyoniichannuwu.github.io/Zenless-Zone-Zero-Banner-1.0/)
+🔗 **Live Demo:** [Trải nghiệm ngay tại đây](https://huyoniichannuwu.github.io/ZZZ-Banner-System/)
 ---
 
 ---
-## ⚙️ Logic Gacha (Code Breakdown)
+## ⚙️ Logic Gacha
 
 Hệ thống sử dụng `Math.random()` và `localStorage` để xử lý xác suất:
 
@@ -23,10 +23,10 @@ Biến `randomNV` (0-100) quyết định phẩm chất:
 * 🔴 **S-Rank** (`randomNV <= 1.6666`):
     * **50%:** Ra **Alice** (Rate Up).
     * **50%:** Ra tướng lệch rate (Lycaon, Rina, Soldier 11, Koleda, Grace, Nekomata).
-* 🟣 **A-Rank** (`2 <= randomNV <= 20`):
+* **A-Rank** (`2 <= randomNV <= 20`):
     * Tỷ lệ khoảng ~18%.
     * Ra ngẫu nhiên: Anby, Sett, Nicole.
-* ⚪ **B-Rank** (`randomNV > 20`):
+* **B-Rank** (`randomNV > 20`):
     * Tỷ lệ khoảng ~80%.
     * Vật phẩm: Kiếm Súng.
 
@@ -107,6 +107,7 @@ function check50_50() {
         return "Standard S-Rank (Lost 50/50)";
     }
 }
+
 
 
 
