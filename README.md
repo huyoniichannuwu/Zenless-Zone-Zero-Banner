@@ -7,9 +7,9 @@ A big update **2.0** after 1.0 release a few days ago (add more effects, fix log
 
 ---
 
-# 🎰 Gacha System Logic
+# Gacha System Logic
 
-This project simulates a Gacha banner (Zenless Zone Zero style) using JavaScript. Below is the breakdown of the internal logic.
+This project simulates a Gacha banner (Zenless Zone Zero style) using JavaScript. Below is the logic of the system
 
 ## 📊 Probabilities & Ranks
 The system generates a random number `randomNV` (0-100) for every pull:
@@ -61,5 +61,6 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 ## 🔊 Audio & Visuals
 * **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (Chiu), and Losing 50/50 (Sad).
 * **Click-to-Reveal:** S-Rank results are initially hidden ("S-Rankkkk!"). The user must click the text to reveal the character and trigger the win/loss sound.
+
 
 
