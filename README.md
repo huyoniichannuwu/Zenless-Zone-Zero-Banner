@@ -1,11 +1,10 @@
 ## BANNER PHƯƠNG THẢO ƯỚC THỆ - Guarantee S-rank Character - Alice Thymefield
-A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music)
 ![Project Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Language](https://img.shields.io/badge/Language-Vietnamese-red)
 ![Tech](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20JS-blue)
 
- 
-
+A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music)
+---
 # 🎰 Gacha System Logic
 
 This project simulates a Gacha banner (Zenless Zone Zero style) using JavaScript. Below is the breakdown of the internal logic.
