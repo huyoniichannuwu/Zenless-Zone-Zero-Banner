@@ -5,7 +5,7 @@
 
 A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music) 
 
-🔗 **Live Demo:** [Trải nghiệm ngay tại đây](https://huyoniichannuwu.github.io/ZZZ-Banner-System/)
+🔗 **Live Demo:** https://huyoniichannuwu.github.io/ZZZ-Banner-System/
 ---
 
 ---
@@ -13,32 +13,10 @@ A big update **2.0** after 1.0 release a few days ago (add more effects, fix log
 
 Hệ thống sử dụng `Math.random()` và `localStorage` để xử lý xác suất:
 
-### 1. Cơ chế Bảo Hiểm (Hard Pity)
-* **Điều kiện:** `if (pity >= 89)`
-* **Kết quả:** Chắc chắn nhận **Alice** (S-Rank).
-
-### 2. Tỷ lệ Quay (Probability)
-Biến `randomNV` (0-100) quyết định phẩm chất:
-
-* 🔴 **S-Rank** (`randomNV <= 1.6666`):
-    * **50%:** Ra **Alice** (Rate Up).
-    * **50%:** Ra tướng lệch rate (Lycaon, Rina, Soldier 11, Koleda, Grace, Nekomata).
-* **A-Rank** (`2 <= randomNV <= 20`):
-    * Tỷ lệ khoảng ~18%.
-    * Ra ngẫu nhiên: Anby, Sett, Nicole.
-* **B-Rank** (`randomNV > 20`):
-    * Tỷ lệ khoảng ~80%.
-    * Vật phẩm: Kiếm Súng.
-
-### 3. Lưu trữ
-* Dữ liệu `pity` được lưu vào **LocalStorage** để không bị mất khi tải lại trang.
----
-
 ## 🚀 Tính Năng Chính
 
 * **Mô phỏng Gacha:** Quay nhân vật với hiệu ứng và logic thực tế.
 * **Hệ thống Pity (Bảo hiểm):** Theo dõi số lần quay để đảm bảo ra nhân vật S-rank và A-rank.
-* **Lịch sử:** Lưu trữ kết quả các lần quay (hiển thị trên giao diện hoặc console).
 * **Giao diện:** Thiết kế responsive cơ bản với HTML/CSS.
 
 ---
@@ -58,7 +36,7 @@ Hệ thống sử dụng `Math.random()` để sinh ra một số từ 0 đến 
 Biến đếm `pityCounter` được sử dụng để theo dõi số lần quay chưa ra S-rank:
 
 * **Hard Pity (Bảo hiểm cứng):** Tại lần quay thứ **90**, nếu chưa ra S-rank, tỷ lệ trả về S-rank là **100%**.
-* **Soft Pity (Bảo hiểm mềm):** Bắt đầu từ khoảng lần quay thứ **74**, tỷ lệ ra S-rank sẽ tăng đột biến (không còn là 0.6% mà tăng dần lên, ví dụ: 6% -> 12% -> 20%...) cho đến khi chạm 90.
+* **Soft Pity (Bảo hiểm mềm):** Bắt đầu từ lần quay thứ **80**, tỷ lệ ra S-rank sẽ tăng đột biến (không còn là 0.6% mà tăng dần lên, ví dụ: 6% -> 12% -> 20%...) cho đến khi chạm 90.
 * **A-Rank Pity:** Đảm bảo mỗi **10 lần quay** chắc chắn có ít nhất 1 đồ tím (A-rank).
 
 ### 3. Cơ Chế 50/50 (Rate Up)
@@ -67,50 +45,3 @@ Khi hệ thống xác định bạn nhận được S-rank, một biến kiểm 
 1.  **Lần đầu ra S-rank:** Có **50%** tỷ lệ ra nhân vật Banner (Alice) và **50%** ra nhân vật thường (Lệch rate).
 2.  **Nếu lệch rate:** Biến `isGuaranteed` được set thành `true`.
 3.  **Lần sau ra S-rank:** Chắc chắn **100%** là nhân vật Banner (Alice). Sau đó `isGuaranteed` reset về `false`.
-
-### 📝 Ví dụ mã giả (Pseudo-code Logic):
-
-```javascript
-let pityCount = 0;
-let isGuaranteed = false;
-
-function roll() {
-    pityCount++;
-    let chance = Math.random() * 100; // 0 - 100
-
-    // Xử lý Soft Pity (tăng tỷ lệ từ lần 74)
-    let sRankRate = 0.6;
-    if (pityCount >= 74) {
-        sRankRate += (pityCount - 73) * 6; // Tăng tỷ lệ cực nhanh
-    }
-
-    // Kiểm tra trúng S-Rank
-    if (chance <= sRankRate || pityCount === 90) {
-        pityCount = 0; // Reset pity
-        return check50_50();
-    }
-    
-    // Logic cho A-Rank và B-Rank tiếp tục ở dưới...
-}
-
-function check50_50() {
-    if (isGuaranteed) {
-        isGuaranteed = false;
-        return "Alice (Guaranteed)";
-    }
-    
-    // Tung đồng xu 50/50
-    if (Math.random() < 0.5) {
-        return "Alice (Win 50/50)";
-    } else {
-        isGuaranteed = true; // Lần sau chắc chắn trúng
-        return "Standard S-Rank (Lost 50/50)";
-    }
-}
-
-
-
-
-
-
-
