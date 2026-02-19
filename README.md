@@ -4,7 +4,11 @@
 ![Tech](https://img.shields.io/badge/Tech-HTML%20%7C%20CSS%20%7C%20JS-blue)
 
 A big update **2.0** after 1.0 release a few days ago (add more effects, fix logic bugs, add sound effects & music)
+
+
 link: https://huyoniichannuwu.github.io/ZZZ-Banner-System/
+
+
 ---
 
 # Gacha System Logic
@@ -61,6 +65,7 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 ## 🔊 Audio & Visuals
 * **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (chiu.mp3), and Losing 50/50 (sad.mp3).
 * **Click-to-Reveal:** S-Rank results are initially hidden ("S-Rankkkk!"). The user must click the text to reveal the character and trigger the win/loss sound.
+
 
 
 
