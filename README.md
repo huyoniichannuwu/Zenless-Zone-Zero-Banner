@@ -61,10 +61,6 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 * **LocalStorage:** The `pity` count and `guarantee` (boolean) status are saved to the browser.
 * This saves your pull history is preserved even if you refresh or close the page.
 
-## 🔊 Audio & Visuals
-* **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (chiu.mp3), and Losing 50/50 (sad.mp3).
-* **Click-to-Reveal:** S-Rank results are initially hidden ("S-Rankkkk!"). The user must click the text to reveal the character and trigger the win/loss sound.
-
 
 
 
