@@ -22,7 +22,7 @@ The system generates a random number `randomNV` (0-100) for every pull:
 * **A-Rank** (`2 ≤ randomNV ≤ 10`): **~9% chance**.
     * *Reward:* Anby, Sett, Nicole.
 * **B-Rank** (`randomNV > 10`): **~90% chance**.
-    * *Reward:* W-Engines (Kiếm Súng, Tương Cà, etc.).
+    * *Reward:* W-Engines (Kiếm Súng, Tương Cà, Diệt Khổng Lồ).
 
 ---
 
@@ -64,6 +64,7 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 ## 🔊 Audio & Visuals
 * **Sound Effects:** Distinct sounds for Clicking, S-Rank reveal, Winning 50/50 (chiu.mp3), and Losing 50/50 (sad.mp3).
 * **Click-to-Reveal:** S-Rank results are initially hidden ("S-Rankkkk!"). The user must click the text to reveal the character and trigger the win/loss sound.
+
 
 
 
