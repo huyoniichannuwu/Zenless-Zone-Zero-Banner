@@ -6,4 +6,4 @@
 ("https://huyoniichannuwu.github.io/Zenless-Zone-Zero-Banner-1.0/")
 
 - new update in branch 'banner-2.0' - <3
-- tips: Use the link on branch 'banner-2.0' for the best experience
+- tips: **Use the link on branch 'banner-2.0' for the best experience**
