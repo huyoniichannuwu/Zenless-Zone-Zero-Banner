@@ -20,7 +20,7 @@ The system generates a random number `randomNV` (0-100) for every pull:
 * **S-Rank** (`randomNV ≤ 1`): **~1% chance**.
     * *Reward:* **Alice** (Banner Character) or Standard S-Rank Characters.
 * **A-Rank** (`2 ≤ randomNV ≤ 10`): **~9% chance**.
-    * *Reward:* Anby, Sett, Nicole.
+    * *Reward:* A-rank Characters (Anby, Sett, Nicole).
 * **B-Rank** (`randomNV > 10`): **~90% chance**.
     * *Reward:* W-Engines (Kiếm Súng, Tương Cà, Diệt Khổng Lồ).
 
@@ -60,6 +60,7 @@ When an S-Rank is pulled (either via luck or Hard Pity), the **50/50 logic** app
 ## 💾 Data Persistence
 * **LocalStorage:** The `pity` count and `guarantee` (boolean) status are saved to the browser.
 * This saves your pull history is preserved even if you refresh or close the page.
+
 
 
 
